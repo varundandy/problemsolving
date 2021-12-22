@@ -1,5 +1,7 @@
 package com.datastructures.problems;
 
+import java.util.Date;
+
 /**
  * Given a sorted array of distinct integers and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order.
  * <p>
@@ -41,9 +43,9 @@ public class SearchInsertPosition {
     public static void main(String args[]) {
         int[] nums = {1, 3, 5, 6};
         int target = 5;
-
-        int result = searchInsertPosition(nums, target);
-        System.out.println(result);
+        System.out.println(new Date().getTime());
+        //int result = searchInsertPosition(nums, target);
+      //  System.out.println(result);
     }
 
     private static int searchInsertPosition(int[] nums, int target) {
