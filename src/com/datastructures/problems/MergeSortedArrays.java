@@ -1,11 +1,12 @@
 package com.datastructures.problems;
 
-import java.util.Map;
-import java.util.Set;
-import java.util.TreeMap;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class MergeSortedArrays {
     public static void main(String args[]) {
+        List<String> str = new ArrayList<>();
+        str.parallelStream().map( l -> l.charAt(0)).collect(Collectors.toList());
         int[] arr1 = {0, 3, 5, 9, 16, 25, 29, 31};
         int[] arr2 = {3, 4, 6, 30};
         // Object result[] = mergeSortedArraysUsingMap(arr1, arr2);
