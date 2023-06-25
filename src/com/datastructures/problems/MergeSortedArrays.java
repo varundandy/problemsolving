@@ -18,7 +18,8 @@ public class MergeSortedArrays {
 
     //Option 1: just add all in one array and then use any sort algorithm
     //Option 2: Use a map--will loose duplicate values
-
+// O(n+M) time complexity
+    //Tree Map sorting or insertion time complexity is O(logn)
     public static Object[] mergeSortedArraysUsingMap(int[] arr1, int[] arr2) {
         int[] mergedArray = new int[arr1.length + arr2.length];
         Map<Integer, String> map = new TreeMap<>();
@@ -32,6 +33,7 @@ public class MergeSortedArrays {
         return mergedSet.toArray();
     }
 
+    //O(n + m) time complexity
     public static int[] mergeSortedArrays(int[] arr1, int[] arr2) {
         //  int[] arr1 = {0, 3, 4, 31};
         //int[] arr2 = {3, 4, 6, 30};
