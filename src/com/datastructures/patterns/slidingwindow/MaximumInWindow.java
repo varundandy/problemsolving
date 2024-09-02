@@ -52,7 +52,7 @@ public class MaximumInWindow {
     }
 
     private static int getMaxFromWindow(int[] nums, int start, int end) {
-        int max = 0;
+        int max = nums[start];
         for(int i = start; i <= end;i++){
             if(max < nums[i]){
                 max = nums[i];
