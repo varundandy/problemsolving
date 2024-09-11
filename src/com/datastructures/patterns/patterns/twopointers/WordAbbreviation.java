@@ -4,40 +4,39 @@ public class WordAbbreviation {
 
     public static void main(String args[]) {
 
-        String word = "abcdefghijklmnopqrst";
-        String abbreviation = "a18t";
+        String word = "z";
+        String abbreviation = "2";
 
         Boolean result = checkAbbreviation(word, abbreviation);
         System.out.println(result);
     }
 
     private static Boolean checkAbbreviation(String word, String abbr) {
-
         int wordCounter = 0;
         int abbrCounter = 0;
 
-        while (abbrCounter < abbr.length() - 1) {
+        while (abbrCounter < abbr.length()) {
             char currrentChar = abbr.charAt(abbrCounter);
-            char nextChar = abbr.charAt(abbrCounter + 1);
+
             if (isDigit(currrentChar)) {
-                if (abbr.charAt(abbrCounter) == '0') {
+                if (currrentChar == '0') { // Handle leading zero case
                     return false;
                 }
-                int jumpCounter = Integer.parseInt(String.valueOf(currrentChar));
-                if (isDigit(nextChar)) {
-                    jumpCounter = Integer.parseInt(String.valueOf(currrentChar) + String.valueOf(nextChar));
+                int jumpCounter = 0;
+                while (abbrCounter < abbr.length() && isDigit(abbr.charAt(abbrCounter))) {
+                    jumpCounter = jumpCounter * 10 + (abbr.charAt(abbrCounter) - '0');
                     abbrCounter++;
                 }
-                wordCounter = wordCounter + jumpCounter;
-                abbrCounter++;
-            } else if (currrentChar == word.charAt(wordCounter)) {
+                wordCounter += jumpCounter;
+            } else {
+                if (wordCounter >= word.length() || currrentChar != word.charAt(wordCounter)) {
+                    return false;
+                }
                 wordCounter++;
                 abbrCounter++;
-            } else {
-                return false;
             }
         }
-        return true;
+        return wordCounter == word.length();
     }
 
     public static Boolean isDigit(char character) {
